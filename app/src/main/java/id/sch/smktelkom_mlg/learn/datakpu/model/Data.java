@@ -11,7 +11,7 @@ public class Data {
     String kab_id;
     String provinsi;
     String dapil;
-    String noUrut;
+    String nourut;
     String calon;
     String calon_id;
     String wakil;
@@ -75,12 +75,12 @@ public class Data {
         this.dapil = dapil;
     }
 
-    public String getNoUrut() {
-        return noUrut;
+    public String getNourut() {
+        return nourut;
     }
 
-    public void setNoUrut(String noUrut) {
-        this.noUrut = noUrut;
+    public void setNourut(String nourut) {
+        this.nourut = nourut;
     }
 
     public String getCalon() {

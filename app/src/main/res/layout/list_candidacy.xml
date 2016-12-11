@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/candidacy"
+            android:id="@+id/tvCandidacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="List Candidacy" />
+            android:gravity="center_horizontal"
+            android:text="Candidacy" />
+
+        <TextView
+            android:id="@+id/tvNoUrut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="No"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/tvCalon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="bottom|center"
+                android:text="Nama Calon" />
+
+            <TextView
+                android:id="@+id/tvWakil"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="bottom|center"
+                android:text="Nama Wakil" />
+        </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

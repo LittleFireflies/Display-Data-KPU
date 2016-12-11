@@ -33,7 +33,13 @@ public class CandidacyAdapter extends RecyclerView.Adapter<CandidacyAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvCandidacy.setText(candidacyList.get(position).getData().getCalon());
+        holder.tvNoUrut.setText(candidacyList.get(position).getData().getNourut());
+        holder.tvCalon.setText(candidacyList.get(position).getData().getCalon());
+        holder.tvWakil.setText(candidacyList.get(position).getData().getWakil());
+        holder.tvCandidacy.setText("Provinsi "
+                + candidacyList.get(position).getData().getProvinsi()
+                + " Dapil "
+                + candidacyList.get(position).getData().getDapil());
     }
 
     @Override
@@ -43,11 +49,17 @@ public class CandidacyAdapter extends RecyclerView.Adapter<CandidacyAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvCandidacy;
+        private TextView tvNoUrut;
+        private TextView tvCalon;
+        private TextView tvWakil;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvCandidacy = (TextView) itemView.findViewById(R.id.candidacy);
+            tvCandidacy = (TextView) itemView.findViewById(R.id.tvCandidacy);
+            tvNoUrut = (TextView) itemView.findViewById(R.id.tvNoUrut);
+            tvCalon = (TextView) itemView.findViewById(R.id.tvCalon);
+            tvWakil = (TextView) itemView.findViewById(R.id.tvWakil);
         }
     }
 }

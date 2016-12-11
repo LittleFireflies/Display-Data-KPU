@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import id.sch.smktelkom_mlg.learn.datakpu.adapter.CandidacyAdapter;
 import retrofit2.Call;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface request = retrofit.create(RequestInterface.class);
-        for (int id = 1; id <= 5; id++) {
+        for (int id = 1; id <= 826; id++) {
             Call<JSONResponse> call = request.getJSON(String.valueOf(id));
             call.enqueue(new Callback<JSONResponse>() {
                 @Override
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONResponse jsonResponse = response.body();
                     if (jsonResponse.getData() != null) {
                         candidacyList.add(response.body());
-
+                        sortData();
                         candidacyAdapter = new CandidacyAdapter(candidacyList);
                         rvCandidacy.setAdapter(candidacyAdapter);
                     } else {
@@ -60,5 +62,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void sortData() {
+        Collections.sort(candidacyList, new Comparator<JSONResponse>() {
+            @Override
+            public int compare(JSONResponse jsonResponse1, JSONResponse jsonResponse2) {
+                int res;
+                res = jsonResponse1.getData().getDapil().compareTo(jsonResponse2.getData().getDapil());
+                if (res == 0) {
+                    return jsonResponse1.getData().getNourut().compareTo(jsonResponse2.getData().getNourut());
+                } else {
+                    return res;
+                }
+            }
+        });
     }
 }
